@@ -1,4 +1,4 @@
-#gcp-consul-vault-kms-image
+# gcp-consul-vault-kms-image
 
 Vault with Consul backend image for GCP, using Ubuntu 16.04, KMS configuration for autounsealling, to provisiion run:
 
