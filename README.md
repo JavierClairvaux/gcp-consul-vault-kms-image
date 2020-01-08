@@ -11,3 +11,9 @@ To iniitalize Vault with auto-unsealing use:
 ```Console
 $ vault operator init -recovery-shares=1 -recovery-threshold=1
 ```
+
+To provision image run:
+```Console
+$ packer build gcp-consul-kms-vault.json 
+
+```
