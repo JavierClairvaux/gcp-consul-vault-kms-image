@@ -1,0 +1,36 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "$PATH_TO_CREDENTIALS",
+      "project_id": "$PROJECT_ID",
+      "zone": "$GCP_ZONE",
+      "source_image_family": "ubuntu-1604-lts",      
+      "ssh_username": "$SSH_USER",
+      "image_name": "consul-vault-kms-{{timestamp}}"
+    }
+  ],
+   "provisioners": [{
+      "type": "file",
+      "source": "./consul-vault.sh",
+      "destination": "~/consul-vault.sh"
+    },
+    {	
+      "type": "shell", 
+      "inline": ["chmod +x ~/consul-vault.sh"]
+    },
+    {
+      "type": "shell",
+      "inline": ["./consul-vault.sh"]
+    },
+    {
+      "type": "file",
+      "source": "./provisioner.sh",
+      "destination": "~/provisioner.sh"
+    },
+    {
+      "type": "shell",
+      "inline": ["chmod +x ~/provisioner.sh"]
+    }
+  ]
+}
